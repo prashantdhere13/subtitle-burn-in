@@ -122,7 +122,7 @@ export default function CaptionCastUI() {
           setCurrentBurnInSubtitle(newGerSub);
         } catch (error) {
           console.error("Translation error:", error);
-          toast({ title: "Translation Error", description: "Failed to translate subtitles.", variant: "destructive" });
+          toast({ title: "Translation Error", description: "Failed to translate subtitles. Check console for details.", variant: "destructive" });
           setTranslatedSubtitles(prev => [...prev.slice(-9), "[Translation Failed]"]);
           setCurrentBurnInSubtitle("[Translation Failed]");
         } finally {
@@ -132,7 +132,7 @@ export default function CaptionCastUI() {
       };
       
       processNextSubtitle(); // Initial call for the current state
-      intervalId = setInterval(processNextSubtitle, 4000); // New subtitle every 4 seconds
+      intervalId = setInterval(processNextSubtitle, 6000); // New subtitle every 6 seconds
     }
 
     return () => {
